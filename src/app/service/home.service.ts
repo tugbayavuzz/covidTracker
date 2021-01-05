@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import { CovidResult} from '../models/covid-result.models';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class HomeService {
   private url = 'https://api.collectapi.com/corona/totalData';
 
-  constructor(private http: HttpClient) { }
      httpOptions = {
         headers: new HttpHeaders({
             authorization: 'apikey 4B1V8BlhGMHZKHJkkpa8w6:03Na7u7DnHiSV7eqbW6Dfv',
@@ -15,17 +16,11 @@ export class HomeService {
 
         })
     };
+  constructor(private http: HttpClient) {}
     getData(){
-        return new Promise((resolve, reject) => {
-        const request =  this.http.get(this.url, this.httpOptions).subscribe(data => {
-                if (data["success"]){
-                    resolve(data['result']);
-                }
-
-        }, e => { reject(e); }, () => {
-            request.unsubscribe(); // subsrcribe olduğunda sürekli yenilemesini durdurduk
-        });
-     });
+        return this.http.get<{success: boolean; result : CovidResult}>(
+            this.url,this.httpOptions
+        ).pipe(map(({result}) => result));
   }
 
 }
