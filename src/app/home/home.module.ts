@@ -15,8 +15,11 @@ import {FormsModule} from '@angular/forms';
         FormsModule,
 
 
+
     ],
-  exports: [HomeComponent,CountryPipe],
+  exports: [HomeComponent],
 
 })
+
 export class HomeModule { }
+
