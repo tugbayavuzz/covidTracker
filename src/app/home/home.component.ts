@@ -11,10 +11,12 @@ import {HomeService} from '../service/home.service';
 export class HomeComponent implements OnInit {
 
   constructor(public homeService: HomeService) { }
-
+  totalData;
   ngOnInit() {
 
-    this.homeService.getData();
+    this.homeService.getData().then(data => {
+          this.totalData = data ;
+    });
   }
 
 }
