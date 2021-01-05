@@ -1,23 +1,38 @@
 .top{
-  background: #9d9fa6;
-  padding: 5px;
+  position: relative;
+  background: #ed576b;
+  padding: 20px 5px;
   ion-card{
     margin: 0px;
-    background: rebeccapurple;
-    ion-card-header{
+    background: #cccccc;
+    border-radius: 15px;
 
+    ion-card-header{
+        padding: 5px;
       ion-card-subtitle{
         font-size: 16px;
         text-align: center;
-        color: #ffffff;
-
+        color: #2a2a2a;
       }
     }
-    ion-card-content{
-      font-size: 19px;
-      color: #ffffff;
-      text-align: center;
     }
+  ion-card-content{
+    font-size: 19px;
+    color: #2a2a2a;
+    text-align: center;
+
+  }
+  .input-area{
+    ion-input{
+      background: #cccccc;
+      border-radius: 5px;
+    }
+    color: #1a1a1a;
+    position: absolute;
+    bottom: -22px;
+    left: 0px;
+    right: 0px;
+    padding: 0px 10px;
   }
 
 }

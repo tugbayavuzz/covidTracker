@@ -1,5 +1,5 @@
 <div class="top" padding>
-   <ion-row >
+   <ion-row *ngIf="covidResult"> <!--covid verisi null değilse göster -->
        <ion-col size="4" size-md="4">
            <ion-card>
                <ion-card-header>
@@ -38,4 +38,8 @@
 
        </ion-col>
    </ion-row>
+<div class="input-area">
+    <ion-input type="text" placeholder="Ülke ara... "></ion-input>
+</div>
+
 </div>
