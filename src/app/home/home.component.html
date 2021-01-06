@@ -40,13 +40,13 @@
    </ion-row>
 <div class="input-area">
     <ion-input type="text" [(ngModel)]="countryName"  placeholder="Ülke ara... "></ion-input>
-    <ion-icon *ngIf="countryName" name="close-outline" (click)="countryName=null"></ion-icon>
+    <ion-icon  name="close-outline" (click)="countryName=null"></ion-icon>
 </div>
 </div>
 
 <div class="main">
     <ion-list>
-        <div *ngFor="let item of countryList | country: countryName">
+        <div *ngFor="let item of countryList | country : countryName">
             <ion-row>
                 <ion-col size="12" (click)="countryName = item.country">
                     <h5>{{item.country}}</h5>
@@ -61,7 +61,7 @@
                         </ion-col>
 
                         <ion-col size="6">
-                            <h6>Bugünkü Yeni Vaka Sayısı</h6>
+                            <h6>Yeni Vaka Sayısı</h6>
                         </ion-col>
                         <ion-col size="6" class="ion-text-right">
                             <span>{{item.newCases}}</span>
@@ -75,7 +75,7 @@
                         </ion-col>
 
                         <ion-col size="6">
-                            <h6>Bugünkü Ölüm Sayısı</h6>
+                            <h6>Yeni Ölüm Sayısı</h6>
                         </ion-col>
                         <ion-col size="6" class="ion-text-right">
                             <span>{{item.newDeaths}}</span>
@@ -100,14 +100,3 @@
         </div>
     </ion-list>
 </div>
-
-
-
-<!--
-country: string,
-    totalcases: string,
-    newCases: string,
-    totaldeaths: string,
-    newDeaths: string,
-    totalRecovered: string,
-    activeCases: string -->
