@@ -1,7 +1,7 @@
 .top{
   position: relative;
   background: #ed576b;
-  padding: 20px 5px;
+  padding: 30px 5px;
   ion-card{
     margin: 0px;
     background: #cccccc;
@@ -24,7 +24,7 @@
   }
   .input-area{
     ion-input{
-      background: #cccccc;
+      background: #e7e5e5;
       border-radius: 5px;
     }
     color: #1a1a1a;
@@ -50,12 +50,12 @@ main{
   height: 100%;
   ion-list {
     margin-top: 35px;
-    background: #cccccc;
+    background: #1a0909;
     overflow: scroll;
     padding:  0 5px;
   }
   div{
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
     padding: 0 5px;
     h5{
       margin: 0;
