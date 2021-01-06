@@ -39,15 +39,75 @@
        </ion-col>
    </ion-row>
 <div class="input-area">
-    <ion-input type="text" [(ngModel)]="countryResult"  placeholder="Ülke ara... "></ion-input>
+    <ion-input type="text" [(ngModel)]="countryName"  placeholder="Ülke ara... "></ion-input>
+    <ion-icon *ngIf="countryName" name="close-outline" (click)="countryName=null"></ion-icon>
 </div>
 </div>
 
 <div class="main">
     <ion-list>
-        <ion-item *ngFor="let item of countryResult | country: countryResult">{{item.country}}</ion-item>
+        <div *ngFor="let item of countryList | country: countryName">
+            <ion-row>
+                <ion-col size="12" (click)="countryName = item.country">
+                    <h5>{{item.country}}</h5>
+                </ion-col>
+                <ion-col size="12" *ngIf="item.country === countryName">
+                    <ion-row>
+                        <ion-col size="6">
+                            <h6>Toplam Vaka Sayısı</h6>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <span>{{item.totalCases}}</span>
+                        </ion-col>
+
+                        <ion-col size="6">
+                            <h6>Bugünkü Yeni Vaka Sayısı</h6>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <span>{{item.newCases}}</span>
+                        </ion-col>
+
+                        <ion-col size="6">
+                            <h6>Toplam Ölüm Sayısı</h6>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <span>{{item.totaldeaths}}</span>
+                        </ion-col>
+
+                        <ion-col size="6">
+                            <h6>Bugünkü Ölüm Sayısı</h6>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <span>{{item.newDeaths}}</span>
+                        </ion-col>
+
+                        <ion-col size="6">
+                            <h6>Toplam İyileşen Sayısı</h6>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <span>{{item.totalRecovered}}</span>
+                        </ion-col>
+
+                        <ion-col size="6">
+                            <h6>Aktif Vaka Sayısı</h6>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <span>{{item.activeCases}}</span>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </div>
     </ion-list>
 </div>
 
 
 
+<!--
+country: string,
+    totalcases: string,
+    newCases: string,
+    totaldeaths: string,
+    newDeaths: string,
+    totalRecovered: string,
+    activeCases: string -->

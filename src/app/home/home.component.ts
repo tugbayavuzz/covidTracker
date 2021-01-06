@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HomeService} from '../service/home.service';
 import {CovidResult} from '../models/covid-result.models';
-import {CountryResult} from '../models/countryResult';
+import {CountryResultModel} from '../models/country-result.model';
 
 
 @Component({
@@ -11,7 +11,8 @@ import {CountryResult} from '../models/countryResult';
 })
 export class HomeComponent implements OnInit {
   covidResult: CovidResult;
-  countryResult: CountryResult;
+  countryList;
+  countryName;
   filter(a){
     console.log(a)
   }
@@ -23,8 +24,8 @@ export class HomeComponent implements OnInit {
     this.homeService.getData().subscribe((data) => {
       this.covidResult = data;
     })
-    this.homeService.getCountryData().subscribe((data) => {
-      this.countryResult = data;
+    this.homeService.GetCountryData("").then(data => {
+      this.countryList = data;
     })
 
   }

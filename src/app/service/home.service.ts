@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { CovidResult} from '../models/covid-result.models';
-import { CountryResult} from '../models/countryResult'
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +25,19 @@ export class HomeService {
             this.url,this.httpOptions
         ).pipe(map(({result}) => result));
   }
-    getCountryData(){
-        return this.http.get<{success: boolean; result : CountryResult}>(
-            this.countryUrl,this.httpOptions
-        ).pipe(map(({result}) => result));
+    GetCountryData(name){
+        return new Promise((resolve ,reject) =>{
+            let request = this.http.get(this.countryUrl,this.httpOptions).subscribe(data => {
+
+                if(data["success"]){
+                    resolve(data['result']);
+                }
+                },e => {
+                reject(e)
+            }, () => {
+                request.unsubscribe();
+            })
+        })
     }
 
 }

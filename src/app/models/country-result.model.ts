@@ -1,4 +1,4 @@
-export interface CountryResult{
+export interface CountryResultModel {
     country: string,
     totalcases: string,
     newCases: string,
