@@ -1,4 +1,4 @@
-<div class="top" padding>
+<div class="top">
    <ion-row *ngIf="covidResult"> <!--covid verisi null değilse göster -->
        <ion-col size="4" size-md="4">
            <ion-card>
@@ -38,20 +38,22 @@
 
        </ion-col>
    </ion-row>
-<div class="input-area">
-    <ion-input type="text" [(ngModel)]="countryName"  placeholder="Ülke ara... "></ion-input>
-    <ion-icon  name="close-outline" (click)="countryName=null"></ion-icon>
-</div>
+
+
+
+    <ion-input type="text" style="background: #cccccc"  placeholder="Ülke ara... "></ion-input>
+
+
 </div>
 
 <div class="main">
     <ion-list>
         <div *ngFor="let item of countryList | country : countryName">
             <ion-row>
-                <ion-col size="12" (click)="countryName = item.country">
+                <ion-col size="12">
                     <h5>{{item.country}}</h5>
                 </ion-col>
-                <ion-col size="12" *ngIf="item.country === countryName">
+                <ion-col size="12">
                     <ion-row>
                         <ion-col size="6">
                             <h6>Toplam Vaka Sayısı</h6>
@@ -94,6 +96,7 @@
                         <ion-col size="6" class="ion-text-right">
                             <span>{{item.activeCases}}</span>
                         </ion-col>
+
                     </ion-row>
                 </ion-col>
             </ion-row>

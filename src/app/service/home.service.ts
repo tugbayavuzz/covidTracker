@@ -8,7 +8,7 @@ import { CovidResult} from '../models/covid-result.models';
   providedIn: 'root'
 })
 export class HomeService {
-  private url = 'https://api.collectapi.com/corona/totalData';
+  private   url = 'https://api.collectapi.com/corona/totalData';
   private countryUrl ='https://api.collectapi.com/corona/countriesData';
 
      httpOptions = {
@@ -17,7 +17,7 @@ export class HomeService {
             'Content-Type': 'application/json',
 
         }),
-         search:"turkey"
+
     };
   constructor(private http: HttpClient) {}
     getData(){
